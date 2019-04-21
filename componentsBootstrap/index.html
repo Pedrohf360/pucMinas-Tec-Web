@@ -36,23 +36,43 @@
       <div id="header">
         <!-- Logo e Menu H -->
         <div class="row">
-          <div class="col-md-3 col-sm-5">
+          <div class="col-md-3 col-sm-12">
             <img id="logo" src="resources/img/nasa.png" alt="logo nasa" />
           </div>
 
-          <div class="col-md-9 col-sm-6">
-            <nav id="topnav">
-              <ul id="menu_h">
-                <li><a href="#">Link 1</a></li>
-                <li><a href="#">Link 2</a></li>
-                <li><a href="#">Link 3</a></li>
-                <li><a href="#">Link 4</a></li>
-                <a class="icon">
-                  <i class="fa fa-bars"></i>
-                </a>
-              </ul>
-            </nav>
-          </div>
+          <nav
+            id="topnav"
+            class="col-md-9 col-sm-12 navbar navbar-expand-lg navbar-light"
+          >
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarNavAltMarkup"
+              aria-controls="navbarNavAltMarkup"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav" id="menu_h">
+                <a class="text-align-center nav-item nav-link" href="#"
+                  >Home<span class="sr-only">(current)</span></a
+                >
+                <a class="text-align-center nav-item nav-link" href="#"
+                  >Features</a
+                >
+                <a class="text-align-center nav-item nav-link" href="#"
+                  >Pricing</a
+                >
+                <a class="text-align-center nav-item nav-link" href="#"
+                  >Disabled</a
+                >
+              </div>
+            </div>
+          </nav>
         </div>
 
         <!-- Migalha de pão -->
@@ -68,10 +88,19 @@
         </div>
       </div>
 
-      <div class="dropdown-divider"></div>
+      <!-- <div class="dropdown-divider"></div> -->
 
       <!-- CARROSEL  -->
       <div id="carousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li
+            data-target="#carouselExampleIndicators"
+            data-slide-to="0"
+            class="active"
+          ></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img
@@ -115,7 +144,7 @@
         </a>
       </div>
 
-      <div class="dropdown-divider"></div>
+      <!-- <div class="dropdown-divider"></div> -->
 
       <div id="last-news-birthday-row">
         <!-- ÚLTIMAS NOTÍCIAS -->
@@ -326,7 +355,7 @@
           </div>
         </div>
       </div>
-      <div class="dropdown-divider"></div>
+      <!-- <div class="dropdown-divider"></div> -->
 
       <!-- RODAPÉ -->
       <div id="footer">
