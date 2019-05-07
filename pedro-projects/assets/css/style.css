@@ -1,0 +1,20 @@
+#resultado {
+    margin: 10px;
+    border: 1px solid black;
+    min-height: 100px;
+    width: 200px;
+    text-align: center;
+}
+
+#doCalcBtn {
+    margin-top: 18px;
+}
+
+#carregar {
+    background: url(../img/load.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    position: absolute;
+    height: 100%;
+}
