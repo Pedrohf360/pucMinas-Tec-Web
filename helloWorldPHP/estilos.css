@@ -1,0 +1,25 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#principal{
+	float:left;
+	position: relative;
+	width: 100%;
+	min-height: 300px;
+	border: 1px solid black;
+}
+
+#conteudo{
+	float: left;
+	position: relative;
+	padding: 20px;
+}
+.carregar{
+	background: url(loading.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 100%;
+	position: absolute;
+	height: 100%;
+	display: none;
+}
