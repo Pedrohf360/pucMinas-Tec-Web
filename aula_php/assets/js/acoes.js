@@ -62,6 +62,9 @@ var carregarReceitas = function() {
         .then(d => {
             const receitas = JSON.parse(d);
 
+            var cards = $('#cards');
+
+            cards[0].innerHTML = '';
             if (receitas && receitas.length > 0) {
                 receitas.forEach(r => {
                     $("#cards").append(template_receitas(r.nome, r.url, r.id, r.votos));
@@ -70,6 +73,41 @@ var carregarReceitas = function() {
         });
 
     // divCards.appendChild()
+}
+
+var abrirTelaInserir = function() {
+
+    var divCards = $('#cards');
+
+    divCards[0].innerHTML = '';
+
+    divCards[0].innerHTML = `<form method="POST" action="assets/php/produtos.php">
+    <div class="form-group">
+      <label for="nome">Nome:</label>
+      <input name="nome" type="nome" class="form-control" id="nome">
+    </div>
+    <div class="form-group">
+      <label for="textarea">Receita:</label>
+      <input name="receita" type="textarea" class="form-control" id="textarea">
+    </div>
+    <div class="form-group">
+      <label for="url">URL da Foto:</label>
+      <input name="url" type="url" class="form-control" id="url">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>`;
+}
+
+var inserirReceita = function() {
+    $.ajax({
+        method: "POST",
+        url: "produtos.php",
+        data: {
+            nome: "Bolinho",
+            url: "URL TEST BRO",
+            receita: "receit aocm texto longo"
+        }
+    })
 }
 
 //Função para montar template:
@@ -83,9 +121,9 @@ var template_receitas = function(nome, url, id, votos) {
 		<h5 class="card-title">${nome}</h5>
 
 		<div id="votos">
-			<i class="fa fa-thumbs-down"></i>
+            <i class="fa fa-thumbs-up"></i>
 			<span>${votos}</span>
-			<i class="fa fa-thumbs-up"></i>
+            <i class="fa fa-thumbs-down"></i>
 		</div>
 		<a href="#" class="card-link" onclick="carregarReceita(${id})" id="bt_carregar">Abrir</a>
 	  </div>
