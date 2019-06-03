@@ -22,7 +22,7 @@ var getReceitas = function(id = "") {
 
     return $.ajax({
         method: "GET",
-        url: `assets/php/produtos.php/?idProduto=${true}`
+        url: `assets/php/produtos.php/?idProduto=${id}`
     });
     // .done(function(retorno) {
 
@@ -98,18 +98,6 @@ var abrirTelaInserir = function() {
   </form>`;
 }
 
-var inserirReceita = function() {
-    $.ajax({
-        method: "POST",
-        url: "produtos.php",
-        data: {
-            nome: "Bolinho",
-            url: "URL TEST BRO",
-            receita: "receit aocm texto longo"
-        }
-    })
-}
-
 //Função para montar template:
 var template_receitas = function(nome, url, id, votos) {
 
@@ -121,14 +109,64 @@ var template_receitas = function(nome, url, id, votos) {
 		<h5 class="card-title">${nome}</h5>
 
 		<div id="votos">
-            <i class="fa fa-thumbs-up"></i>
+            <i class="fa fa-thumbs-up" onclick="upVote(${id}, ${votos})"></i>
 			<span>${votos}</span>
-            <i class="fa fa-thumbs-down"></i>
+            <i class="fa fa-thumbs-down" onclick="downVote(${id}, ${votos})"></i>
 		</div>
 		<a href="#" class="card-link" onclick="carregarReceita(${id})" id="bt_carregar">Abrir</a>
 	  </div>
 	</div>
   </div>`
 
+
+}
+
+carregarReceita = function(idReceita) {
+    getReceitas(idReceita)
+        .then(d => {
+            const cards = $('#cards');
+
+            const receita = JSON.parse(d)[0];
+            cards[0].innerHTML = '';
+
+            cards[0].innerHTML = `
+        <h3>Nome: ${receita.nome}</h3>
+
+        <h3>Foto:
+        <img class="card-img-top" src="${receita.url}" alt="Card image cap" />
+        </h3> 
+        
+        <h3>Receita:${receita.receita}</h3> 
+        <br>
+        <h3>Votos: ${receita.votos}</h3>
+        <br>
+        `;
+        });
+}
+
+upVote = function(idReceita, votos) {
+    $.ajax({
+        method: "POST",
+        url: "assets/php/produtos.php",
+        data: {
+            votos: ++votos,
+            idProduto: idReceita
+        }
+    })
+}
+
+downVote = function(idReceita, votos) {
+    $.ajax({
+        method: "POST",
+        url: "assets/php/produtos.php",
+        data: {
+            votos: --votos,
+            idProduto: idReceita
+        }
+    })
+}
+
+
+var atualizarReceita = function(receita) {
 
 }
