@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+body {
+	background-color: #dedede;
+}
+
+h4 {
+	margin-bottom: 30px;
+}
+
+#header {
+    margin-top: 2em;
+}
+#cards {
+    margin-top: 2em;
+}
+
+#cards textarea {
+	width: 100%;
+}
+
+#cards .deletarFilme {
+	position: absolute;
+	right: -13px;
+    top: -16px;
+	font-size: 30px !important;
+}
+
+#cards .deletarFilme:hover {
+	cursor: pointer !important;
+	opacity: 0.8;
+}
+
+#cards #enviarComentario {
+	float: right;
+}
+
+#cards .divCard {
+	margin-bottom: 2em;
+}
+
+
+.alert {
+	margin: 20px;
+}
